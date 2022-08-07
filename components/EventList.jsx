@@ -1,7 +1,8 @@
 import { Pressable, View, Text, StyleSheet, Image } from 'react-native';
-import { ListItem, Avatar } from '@rneui/themed';
+import moment from 'moment';
 
-export default function List({name, imageUrl, onPress}) {
+export default function List({name, imageUrl, departament, initialDate, onPress}) {
+  const date = moment(initialDate).format('DD-MM-YYYY');
   return (
       <View style={styles.gridItem}>
           <Pressable android_ripple={{color: "#ccc"}} style={styles.button} onPress={onPress}>
@@ -11,8 +12,8 @@ export default function List({name, imageUrl, onPress}) {
                   </View>
                   <View style={styles.textContainer}>
                     <Text style={styles.name}>Evento: {name}</Text>
-                    <Text style={styles.name}>Categ./Depart.: {name}</Text>
-                    <Text style={styles.name}>Data: {name}</Text>
+                    <Text style={styles.name}>Categ./Depart.: {departament}</Text>
+                    <Text style={styles.name}>Data: {date}</Text>
                   </View>
               </View>
           </Pressable>
@@ -22,7 +23,6 @@ export default function List({name, imageUrl, onPress}) {
 
 const styles = StyleSheet.create({
   gridItem: {
-    flex: 1,
     margin: 16,
     height: 100,
     borderRadius: 8,
@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     overflow: "hidden"
   },
   imageContainer:{
-    flex: 1,
     width: "30%",
     height: "100%",
     marginRight: 5

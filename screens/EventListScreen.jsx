@@ -1,19 +1,22 @@
 import { FlatList, View } from 'react-native';
-import List from '../components/List';
+import List from '../components/EventList';
 
 const events = require('../data/events.json')
 
-export default function BestiaryListScreen({navigation}) {
+export default function EventListScreen({navigation}) {
   function renderEvent ({item}){
     function onPressHandler() {
-      navigation.navigate("EventDetails", {
+      navigation.navigate("ExtensionDetails", {
         name: item.name,
+        departament: item.departament,
+        initialDate: item.initialDate,
+        finalDate: item.finalDate,
         imageUrl: item.imageUrl,
         description: item.description,
       })
     };
   
-    return <List name={item.name} imageUrl={item.imageUrl} onPress={onPressHandler}/>;
+    return <List name={item.name} imageUrl={item.imageUrl} departament={item.departament} initialDate={item.initialDate} onPress={onPressHandler}/>;
   }
 
   return (
@@ -22,7 +25,6 @@ export default function BestiaryListScreen({navigation}) {
         data={events} 
         keyExtractor={(item) => item.id} 
         renderItem={renderEvent}
-        numColumns={3}
       />
     </View>
   )

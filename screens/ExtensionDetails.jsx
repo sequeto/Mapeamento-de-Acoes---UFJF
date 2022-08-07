@@ -1,9 +1,6 @@
 import { Text, View, Image, StyleSheet,ScrollView } from 'react-native';
-import moment from 'moment';
 
 export default function Details({route}) {
-  const initialDate = moment(route.params.initialDate).format('DD-MM-YYYY');
-  const finalDate = moment(route.params.finalDate).format('DD-MM-YYYY');
   return (
     <View style={{flex: 1, backgroundColor:"#FFF"}}>
       <View style={styles.container}>
@@ -16,9 +13,6 @@ export default function Details({route}) {
           <ScrollView style={styles.descriptionContainer}>
             <Text style={styles.description}>{route.params.description}</Text>
           </ScrollView>
-          <View style={styles.dates}>
-            <Text style={styles.name}>Data Inicial: {initialDate}</Text>
-          </View>
       </View>
     </View>
   )

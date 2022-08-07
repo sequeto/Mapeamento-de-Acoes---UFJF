@@ -9,6 +9,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import EventListScreen from '../screens/EventListScreen';
 import ExtensionsListScreen from '../screens/ExtensionsListScreen';
+import ExtensionDetails from '../screens/ExtensionDetails';
 import EventDetails from '../screens/EventDetails'
 
 
@@ -29,6 +30,7 @@ function RootNavigator() {
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="EventDetails" component={EventDetails} options={{title: 'Detalhes do Evento'}}/>
+        <Stack.Screen name="ExtensionDetails" component={ExtensionDetails} options={{title: 'Detalhes da Extensão'}}/>
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -42,8 +44,8 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="Eventos"
       screenOptions={{
-        // tabBarActiveTintColor: Colors[colorScheme].tint,
-        tabBarActiveTintColor: 'blue',
+        tabBarActiveTintColor: Colors[colorScheme].tint,
+        // tabBarActiveTintColor: '#D32F2F',
       }}>
       <BottomTab.Screen
         name="Eventos"
