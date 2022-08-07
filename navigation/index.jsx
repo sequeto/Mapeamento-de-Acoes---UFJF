@@ -9,6 +9,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import EventListScreen from '../screens/EventListScreen';
 import ExtensionsListScreen from '../screens/ExtensionsListScreen';
+import EventDetails from '../screens/EventDetails'
 
 
 export default function Navigation({ colorScheme }) {
@@ -27,7 +28,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        {/* <Stack.Screen name="BestiaryCreatureScreen" component={BestiaryCreatureScreen} options={{title: 'Bestiário'}}/> */}
+        <Stack.Screen name="EventDetails" component={EventDetails} options={{title: 'Detalhes do Evento'}}/>
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -48,7 +49,6 @@ function BottomTabNavigator() {
         name="Eventos"
         component={EventListScreen}
         options={({ navigation }) => ({
-          title: 'Eventos',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
         })}
       />
@@ -56,7 +56,6 @@ function BottomTabNavigator() {
         name="Extensões"
         component={ExtensionsListScreen}
         options={{
-          title: 'Extensões',
           tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
         }}
       />

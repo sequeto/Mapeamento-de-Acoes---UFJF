@@ -1,6 +1,6 @@
 import { Text, View, Image, StyleSheet,ScrollView } from 'react-native';
 
-export default function BestiaryCreatureScreen({route}) {
+export default function Details({route}) {
   return (
     <View style={styles.container}>
         <Text style={styles.name}>{route.params.name}</Text>
@@ -17,7 +17,7 @@ export default function BestiaryCreatureScreen({route}) {
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: "100%",
+    height: "50%",
     borderRadius: 50
   },
   imageContainer:{
@@ -40,5 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+
   }
 });
